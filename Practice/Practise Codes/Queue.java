@@ -15,6 +15,10 @@ public class Queue {
             head=newnode;
             tail= newnode;
 
+
+
+            
+
         }
         else{
             tail.next=head;
