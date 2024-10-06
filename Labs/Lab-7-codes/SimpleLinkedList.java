@@ -70,19 +70,18 @@ public class SimpleLinkedList {
             list.addNodeback(value);
         }
 
-        // Measure time for iterative approach
+
         long startTimeIterative = System.nanoTime();
         list.Iterative();
         long endTimeIterative = System.nanoTime();
         long iterativeTime = endTimeIterative - startTimeIterative;
 
-        // Measure time for recursive approach
+
         long startTimeRecursive = System.nanoTime();
         list.printRecursiveWrapper();
         long endTimeRecursive = System.nanoTime();
         long recursiveTime = endTimeRecursive - startTimeRecursive;
 
-        // Time comparison
         System.out.println("Time taken by Iterative approach: " + iterativeTime + " nanoseconds");
         System.out.println("Time taken by Recursive approach: " + recursiveTime + " nanoseconds");
 
