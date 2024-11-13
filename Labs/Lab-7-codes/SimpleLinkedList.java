@@ -47,7 +47,7 @@ class LinkedList {
         Recursive(node.next);
     }
 
-    public void printRecursiveWrapper() {
+    public void printRecursive() {
         System.out.print("Recursive: ");
         Recursive(head);
         System.out.println();
@@ -78,7 +78,7 @@ public class SimpleLinkedList {
 
 
         long startTimeRecursive = System.nanoTime();
-        list.printRecursiveWrapper();
+        list.printRecursive();
         long endTimeRecursive = System.nanoTime();
         long recursiveTime = endTimeRecursive - startTimeRecursive;
 

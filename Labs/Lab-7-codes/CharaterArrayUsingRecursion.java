@@ -1,6 +1,4 @@
 public class CharaterArrayUsingRecursion {
-    
-
     public static void forward(char[]arr, int index){
         if(index==arr.length){
             return;
