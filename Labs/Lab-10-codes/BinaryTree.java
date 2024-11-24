@@ -142,16 +142,16 @@ public void levelorder(Node root){
         tree.addNode(3);
         tree.addNode(7);
 
-        System.out.println("Is 7 in the tree? " + tree.searchNode(7));  // Output: true
-        System.out.println("Is 8 in the tree? " + tree.searchNode(8));  // Output: false
-        System.out.println("Total number of nodes: " + tree.countOfNodes(tree.root));  // Output: 5
-        System.out.println("Height of the tree: " + tree.height(tree.root));  // Output: 3
-      //  System.out.println("This is Preorder");
-       // tree.preorder(tree.root);
-       // System.out.println("This is postorder");
-       // tree.postorder(tree.root);
-       // System.out.println("This is inorder");
-      //  tree.inorder(tree.root);
+        System.out.println("Is 7 in the tree? " + tree.searchNode(7));
+        System.out.println("Is 8 in the tree? " + tree.searchNode(8));
+        System.out.println("Total number of nodes: " + tree.countOfNodes(tree.root));
+        System.out.println("Height of the tree: " + tree.height(tree.root));
+       System.out.println("This is Preorder");
+     tree.preorder(tree.root);
+        System.out.println("This is postorder");
+       tree.postorder(tree.root);
+        System.out.println("This is inorder");
+       tree.inorder(tree.root);
 
       System.out.println("Level Order Traversal:");
       tree.levelorder(tree.root); 

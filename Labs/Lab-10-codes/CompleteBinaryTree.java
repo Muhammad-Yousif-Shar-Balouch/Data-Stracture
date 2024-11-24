@@ -1,140 +1,125 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class CompleteBinaryTree {
 
-    // A simple Node class to represent each node of the tree
     static class Node {
-        int data; // Data in the node
-        Node left, right; // Left and right children
+        int data;
+        Node left, right;
 
-        // Constructor to create a new node
         Node(int data) {
             this.data = data;
-            left = right = null; // Initially, no children
+            this.left = null;
+            this.right = null;
         }
     }
 
-    private Node root; // Root of the tree
-    private int size; // Keeps track of the number of nodes
+    private Node root;
+    private int size;
 
-    // Constructor
     public CompleteBinaryTree() {
-        root = null; // Tree starts empty
-        size = 0; // No nodes initially
+        this.root = null;
+        this.size = 0;
     }
 
-    // Insert method to add new node
+
     public void insert(int data) {
         Node newNode = new Node(data);
 
         if (root == null) {
-            root = newNode; // If the tree is empty, this new node becomes the root
+            root = newNode;
         } else {
-            // Use a queue to help insert the node in the right position
-            java.util.Queue<Node> queue = new java.util.LinkedList<>();
+            Queue<Node> queue = new LinkedList<>();
             queue.add(root);
 
-            // Traverse the tree to find the first empty spot
             while (!queue.isEmpty()) {
                 Node current = queue.poll();
 
                 if (current.left == null) {
-                    current.left = newNode; // Insert the new node here
+                    current.left = newNode;
                     break;
                 } else {
-                    queue.add(current.left); // Otherwise, go to the left child
+                    queue.add(current.left);
                 }
 
                 if (current.right == null) {
-                    current.right = newNode; // Insert the new node here
+                    current.right = newNode;
                     break;
                 } else {
-                    queue.add(current.right); // Otherwise, go to the right child
+                    queue.add(current.right);
                 }
             }
         }
-
-        size++; // Increment the size of the tree
+        size++;
     }
 
-    // Check if the tree is complete
-    public boolean isComplete() {
-        if (root == null) return true; // An empty tree is complete
 
-        java.util.Queue<Node> queue = new java.util.LinkedList<>();
+    public boolean isComplete() {
+        if (root == null) return true;
+
+        Queue<Node> queue = new LinkedList<>();
         queue.add(root);
-        boolean flag = false; // Flag to check if we encountered a missing child
+        boolean noMoreChildrenAllowed = false;
 
         while (!queue.isEmpty()) {
             Node current = queue.poll();
 
             if (current.left != null) {
-                if (flag) return false; // If we encountered a missing child before, the tree is not complete
-                queue.add(current.left); // Add the left child to the queue
+                if (noMoreChildrenAllowed) return false;
+                queue.add(current.left);
             } else {
-                flag = true; // We have an empty left child
+                noMoreChildrenAllowed = true;
             }
 
             if (current.right != null) {
-                if (flag) return false; // If we encountered a missing child before, the tree is not complete
-                queue.add(current.right); // Add the right child to the queue
+                if (noMoreChildrenAllowed) return false;
+                queue.add(current.right);
             } else {
-                flag = true; // We have an empty right child
+                noMoreChildrenAllowed = true;
             }
         }
-        return true; // If no issues, the tree is complete
+        return true;
     }
 
-    // Print the tree in level-order (breadth-first)
+
     public void printLevelOrder() {
         if (root == null) {
             System.out.println("Tree is empty.");
             return;
         }
 
-        java.util.Queue<Node> queue = new java.util.LinkedList<>();
+        Queue<Node> queue = new LinkedList<>();
         queue.add(root);
 
         while (!queue.isEmpty()) {
             Node current = queue.poll();
-            System.out.print(current.data + " "); // Print the current node
+            System.out.print(current.data + " ");
 
-            // Add left and right children to the queue
-            if (current.left != null) {
-                queue.add(current.left);
-            }
-            if (current.right != null) {
-                queue.add(current.right);
-            }
+            if (current.left != null) queue.add(current.left);
+            if (current.right != null) queue.add(current.right);
         }
         System.out.println();
     }
 
-    // Get the size of the tree (number of nodes)
+
     public int getSize() {
         return size;
     }
 
-    // Main method to test the tree
     public static void main(String[] args) {
         CompleteBinaryTree tree = new CompleteBinaryTree();
 
-        // Insert nodes into the tree
         tree.insert(1);
         tree.insert(2);
         tree.insert(3);
         tree.insert(4);
         tree.insert(5);
         tree.insert(6);
-        tree.insert(7);
-
-        // Print the tree in level-order
+        tree.insert(9);
+        tree.root.left.right = null;
         System.out.println("Level Order Traversal:");
-        tree.printLevelOrder(); // Output should be 1 2 3 4 5 6 7
-
-        // Check if the tree is complete
-        System.out.println("Is the tree complete? " + tree.isComplete()); // Should return true
-
-        // Print the size of the tree
-        System.out.println("Size of the tree: " + tree.getSize()); // Should return 7
+        tree.printLevelOrder();
+        System.out.println("Is the tree complete? " + tree.isComplete());
+        System.out.println("Size of the tree: " + tree.getSize());
     }
 }
-
