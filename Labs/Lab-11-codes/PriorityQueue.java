@@ -18,6 +18,7 @@ public class PriorityQueue{
     }
 
     public  int extractMax(){
+        
         if(array.isEmpty()){
             throw new IllegalStateException("Priority Queue is empty");
         }
