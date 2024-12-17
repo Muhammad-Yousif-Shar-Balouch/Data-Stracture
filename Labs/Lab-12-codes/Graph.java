@@ -20,6 +20,7 @@ public abstract class Graph {
 
     // Print the adjacency matrix representation of the graph
     public void printGraph() {
+        
         System.out.println("Adjacency Matrix:");
         for (int i = 0; i < numVertices; i++) {
             for (int j = 0; j < numVertices; j++) {
