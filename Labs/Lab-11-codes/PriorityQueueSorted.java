@@ -54,8 +54,8 @@ public class PriorityQueueSorted {
 
         System.out.println("Maximum Value: " + pq.getMax());
 
-        System.out.println("Is 20 present? " + pq.searchData(20));
-        System.out.println("Is 100 present? " + pq.searchData(100));
+        System.out.println("Is 10 present? " + pq.searchData(10));
+        System.out.println("Is 80 present? " + pq.searchData(80));
 
         System.out.println("Extracted Max: " + pq.extractMax());
 

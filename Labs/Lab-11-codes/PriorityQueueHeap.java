@@ -98,8 +98,8 @@ public class PriorityQueueHeap {
 
         System.out.println("Maximum Value: " + pq.getMax());
 
-        System.out.println("Is 30 present? " + pq.searchData(30));
-        System.out.println("Is 100 present? " + pq.searchData(100));
+        System.out.println("Is 40 present? " + pq.searchData(40));
+        System.out.println("Is 1220 present? " + pq.searchData(1220));
 
         System.out.println("Extracted Max: " + pq.extractMax()); 
 

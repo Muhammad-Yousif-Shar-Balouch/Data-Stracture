@@ -62,14 +62,11 @@ public class PriorityQueue{
         pq.insert(40);
 
 
-        System.out.println("Maximum Value: " + pq.getMax()); // Output: 50
+        System.out.println("Maximum Value: " + pq.getMax());
 
-        // Test searchData
-        System.out.println("Is 30 present? " + pq.searchData(30)); // Output: true
-        System.out.println("Is 100 present? " + pq.searchData(100)); // Output: false
-
-        // Test extractMax
-        System.out.println("Extracted Max: " + pq.extractMax()); // Output: 50
+        System.out.println("Is 30 present? " + pq.searchData(30));
+        System.out.println("Is 100 present? " + pq.searchData(100));
+        System.out.println("Extracted Max: " + pq.extractMax());
         System.out.println("New Maximum Value: " + pq.getMax());
 
     }
